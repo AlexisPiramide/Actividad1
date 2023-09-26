@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -86,5 +87,27 @@ public class ADControler {
         model.addAttribute("comprovacion",conprovacion);
         return "array";
     }
+    /** Ejercicio Numero 7 */
 
+    @GetMapping("/formularioarray")
+    String formularioarray(){
+        return "formularioarray";
+    }
+
+    @PostMapping("/datosarray")
+    String datosarray(@RequestParam("data") Integer data, Model model){
+        model.addAttribute("data", data);
+
+        ArrayList <Integer> lista = new ArrayList<>(6);
+        lista.add(10);
+        lista.add(20);
+        lista.add(30);
+        lista.add(40);
+        lista.add(50);
+        lista.add(data);
+        Collections.sort(lista);
+
+        model.addAttribute("lista",lista);
+        return "datosarray";
+    }
 }
