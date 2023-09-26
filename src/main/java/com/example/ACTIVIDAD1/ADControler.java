@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class ADControler {
 
@@ -53,12 +56,35 @@ public class ADControler {
         return "datos";
     }
 
-    /** Ejercicio Numero 4 */
+    /** Ejercicio Numero 4 y 5 */
     @GetMapping("/perfil")
     String perfil(Model model){
-        Usuario usuario = new Usuario("Pepe",51,"Dormir");
+        String [] Hobies  ={"Dormir", "Comer", "No trabajar" };
+        Usuario usuario = new Usuario("Pepe",2,Hobies);
         System.out.println(usuario);
         model.addAttribute("user",usuario);
         return "perfil";
     }
+    /** Ejercicio Numero 6 */
+    @GetMapping("/array/{number}")
+    String array(Model model,@PathVariable Integer number){
+        ArrayList <Integer> lista = new ArrayList<>(5);
+        lista.add(10);
+        lista.add(20);
+        lista.add(30);
+        lista.add(40);
+        lista.add(50);
+        int conprovacion=0;
+        for(int i=0;i<5;i++){
+            if (lista.get(i)==number){
+                conprovacion=1;
+            }
+        }
+
+        model.addAttribute("lista",lista);
+        model.addAttribute("numero",number);
+        model.addAttribute("comprovacion",conprovacion);
+        return "array";
+    }
+
 }

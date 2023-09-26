@@ -7,6 +7,15 @@
 <body>
     <h1 th:text="${user.name}"/>
     <p th:text="${user.age}"/>
-    <p th:text="${user.hobbies}"/>
+    <ul th:each="hobby : ${user.hobbies}" >
+        <li th:text="${hobby}">
+    </ul>
+
+    <div th:if="${user.age >= 18}">
+        <p th:text="${user.name + ' es mayor de edad porque tiene ' + user.age + ' años'}"></p>
+    </div>
+    <div th:unless="${user.age >= 18}">
+        <p th:text="${user.name + ' es menor de edad porque tiene ' + user.age + ' años'}"></p>
+    </div>
 </body>
 </html>

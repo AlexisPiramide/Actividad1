@@ -3,9 +3,9 @@ package com.example.ACTIVIDAD1;
 public class Usuario {
     private String name;
     private Integer age;
-    private String hobbies;
+    private String [] hobbies;
 
-    public Usuario(String name, Integer age, String hobbies) {
+    public Usuario(String name, Integer age, String [] hobbies) {
         this.name = name;
         this.age = age;
         this.hobbies = hobbies;
@@ -27,11 +27,11 @@ public class Usuario {
         this.age = age;
     }
 
-    public String getHobbies() {
+    public String[] getHobbies() {
         return hobbies;
     }
 
-    public void setHobbies(String hobbies) {
+    public void setHobbies(String [] hobbies) {
         this.hobbies = hobbies;
     }
 
