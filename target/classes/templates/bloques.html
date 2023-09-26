@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Hemos leido el numero otorgado al consejo mediante la url</p>
+    <p>Tras tres milisegundos de deliberacion hemos decidido que</p>
+    <div th:with="condition=${number}>=10">
+        <p th:if="${condition}">La variable [[${number}]]  es mayor o igual que 10</p>
+        <p th:unless="${condition}">La variable [[${number}]]  es menor que 10</p>
+    </div>
+
+    <p>Para demostrarlo vamos a hacer algo totalmente innecesario</p>
+    <ul th:each="numero : ${numeros}">
+        <li th:text="${numero}"></li>
+    </ul>
+</body>
+</html>
